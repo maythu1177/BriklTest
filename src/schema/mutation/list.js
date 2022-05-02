@@ -12,7 +12,7 @@ const ADD_LIST = {
     resolve: async (parent, args) => {
         try {
             const { title } = args;
-            if (!title) return { success: false, message: "title must not be null or empty" };
+            if (!title) return { success: false, message: "title must not be empty" };
             const result = await addList({ title });
             if (result[0]?.affectedRows > 0)
                 return { success: true, message: "Insert Success" };

@@ -16,7 +16,7 @@ test("add list test", async () => {
     expect(res.text).toMatch("Insert Success");
 });
 
-test("add to list return error message when title is null or empty", async () => {
+test("add to list return error message when title empty", async () => {
     const query = `mutation {addList(title: "") {
         message
         success
@@ -27,7 +27,7 @@ test("add to list return error message when title is null or empty", async () =>
         .post('/graphql')
         .send({ query });
     const res = await req;
-    expect(res.text).toMatch("title must not be null or empty");
+    expect(res.text).toMatch("title must not be empty");
 });
 
 
@@ -62,7 +62,7 @@ test("update task test", async () => {
 
 
 
-test("add to task return erorr message when title or list_id or status is null or empty", async () => {
+test("add to task return erorr message when title or status is empty", async () => {
     const query = `mutation {addTask(list_id: 7, title: "", status: "in progress") {
          message
          success
@@ -73,11 +73,11 @@ test("add to task return erorr message when title or list_id or status is null o
         .post('/graphql')
         .send({ query });
     const res = await req;
-    expect(res.text).toMatch("list_id or title or status must not be null or empty");
+    expect(res.text).toMatch("title or status must not be empty");
 });
 
 
-test("update task return erorr message when id or title or list_id or status is null or empty", async () => {
+test("update task return erorr message when title or status  empty", async () => {
     const query = `mutation {updateTask(id:6,list_id: 7, title: "dcl", status: "") {
          message
          success
@@ -88,7 +88,7 @@ test("update task return erorr message when id or title or list_id or status is 
         .post('/graphql')
         .send({ query });
     const res = await req;
-    expect(res.text).toMatch("id or list_id or title or status must not be null or empty");
+    expect(res.text).toMatch("title or status must not be empty");
 });
 
 test("get all list and tasks test", async () => {

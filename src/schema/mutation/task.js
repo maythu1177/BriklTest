@@ -15,7 +15,7 @@ const ADD_TASK = {
     resolve: async (parent, args) => {
         try {
             const { list_id, title, status } = args;
-            if (!list_id || !title || !status) return { success: false, message: "list_id or title or status must not be null or empty" };
+            if (!title || !status) return { success: false, message: "title or status must not be empty" };
             const result = await addTask({ list_id, title, status });
             if (result[0]?.affectedRows > 0)
                 return { success: true, message: "Insert Success" };
@@ -42,7 +42,7 @@ const UPDATE_TASK = {
     resolve: async (parent, args) => {
         try {
             const { id, list_id, title, status } = args;
-            if (!list_id || !title || !status) return { success: false, message: "id or list_id or title or status must not be null or empty" };
+            if (!title || !status) return { success: false, message: "title or status must not be empty" };
             const task = await getTaskById({ id });
             if (task[0].length > 0 && task[0][0]?.id == id) {
                 const result = await updateTask({ id, list_id, title, status });
