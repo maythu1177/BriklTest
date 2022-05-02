@@ -1,0 +1,24 @@
+{
+  "name": "briklcodingtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --runInBand --detectOpenHandles --forceExit"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.4.0",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.16",
+    "supertest": "^6.2.3"
+  },
+  "devDependencies": {
+    "jest": "^28.0.3"
+  }
+}
